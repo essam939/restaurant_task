@@ -88,8 +88,7 @@ class ApiConsumer extends DioConsumer {
   }
   ErrorMessageModel _handleError(DioException exception) {
     return ErrorMessageModel(
-      en: exception.response?.data['localizedMessage']['en'] as String,
-      ar: exception.response?.data['localizedMessage']['ar'] as String,
+      msg: exception.response?.data['msg'] as String,
     );
   }
 }

@@ -27,6 +27,10 @@ class LoginScreen extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (_)=> const HomeScreen()));
         } else if (state is LoginError) {
           context.loaderOverlay.hide();
+          var snackBar = SnackBar(
+            content: Text(state.errorMessage.msg),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         }
       },
       child: Scaffold(
