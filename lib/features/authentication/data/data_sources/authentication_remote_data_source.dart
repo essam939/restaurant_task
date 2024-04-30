@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:restaurant/authentication/core/error/failure.dart';
-import 'package:restaurant/authentication/core/service/remote/dio_consumer.dart';
-import 'package:restaurant/authentication/domain/entities/login_request.dart';
-import 'package:restaurant/authentication/domain/entities/login_response.dart';
+import 'package:restaurant/core/error/failure.dart';
+import 'package:restaurant/core/service/remote/dio_consumer.dart';
+import 'package:restaurant/features/authentication/domain/entities/login_request.dart';
+import 'package:restaurant/features/authentication/domain/entities/login_response.dart';
 
 part 'endpoints.dart';
 abstract class BaseAuthenticationDataSource {

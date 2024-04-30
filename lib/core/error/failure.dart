@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:restaurant/authentication/core/service/remote/error_message_remote.dart';
+import 'package:restaurant/core/service/remote/error_message_remote.dart';
 
 abstract class Failure extends Equatable {
   final ErrorMessageModel errorMessageModel;

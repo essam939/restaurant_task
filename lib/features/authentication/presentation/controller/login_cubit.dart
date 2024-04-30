@@ -1,15 +1,20 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurant/authentication/core/service/remote/error_message_remote.dart';
-import 'package:restaurant/authentication/domain/entities/login_request.dart';
-import 'package:restaurant/authentication/domain/entities/login_response.dart';
-import 'package:restaurant/authentication/domain/use_cases/login_usecase.dart';
+import 'package:restaurant/core/service/local/interface/i_simple_user_data.dart';
+import 'package:restaurant/core/service/local/user_data_factory.dart';
+import 'package:restaurant/core/service/remote/error_message_remote.dart';
+import 'package:restaurant/core/utilities/enums.dart';
+import 'package:restaurant/features/authentication/domain/entities/login_request.dart';
+import 'package:restaurant/features/authentication/domain/entities/login_response.dart';
+import 'package:restaurant/features/authentication/domain/use_cases/login_usecase.dart';
 
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
+  final ISimpleUserData userData =
+  UserDataFactory.createUserData(LocalDataType.secured);
   final LoginUseCase loginUseCase;
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
@@ -30,6 +35,10 @@ class LoginCubit extends Cubit<LoginState> {
           LoginError(errorMessage: failure.errorMessageModel),
         ),
         (user) {
+          userData.writeJsonMap(
+            "userData",
+            user.toJson(),
+          );
           emit(
             LoginLoaded(userData: user),
           );

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:restaurant/authentication/core/error/failure.dart';
+import 'package:restaurant/core/error/failure.dart';
 
 abstract class DioConsumer {
   Future<Either<Failure, dynamic>> get(String uri, {

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loader_overlay/loader_overlay.dart';
-import 'package:restaurant/authentication/core/service/remote/service_locator.dart';
-import 'package:restaurant/authentication/core/widget_life_cycle_listener.dart';
-import 'package:restaurant/authentication/presentation/controller/login_cubit.dart';
-import 'package:restaurant/restaurant/presentation/pages/home_screen.dart';
+import 'package:restaurant/core/service/remote/service_locator.dart';
+import 'package:restaurant/core/widget_life_cycle_listener.dart';
+import 'package:restaurant/features/authentication/presentation/controller/login_cubit.dart';
+import 'package:restaurant/features/restaurant/presentation/pages/home_screen.dart';
 
 part '../widgets/login/login_header.dart';
 part '../widgets/login/login_form.dart';

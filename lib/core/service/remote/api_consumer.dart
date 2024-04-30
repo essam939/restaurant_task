@@ -2,11 +2,11 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:restaurant/authentication/core/error/exceptions.dart';
-import 'package:restaurant/authentication/core/error/failure.dart';
+import 'package:restaurant/core/error/exceptions.dart';
+import 'package:restaurant/core/error/failure.dart';
+import 'package:restaurant/core/service/remote/error_message_remote.dart';
 
 import 'dio_consumer.dart';
-import 'error_message_remote.dart';
 
 class ApiConsumer extends DioConsumer {
   factory ApiConsumer() => _instance;

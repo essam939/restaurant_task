@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:restaurant/authentication/core/error/failure.dart';
+import 'package:restaurant/core/error/failure.dart';
 
 abstract class BaseUseCase<T, Params> {
   Future<Either<Failure, T>> execute(Params params);

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:restaurant/features/authentication/presentation/controller/login_cubit.dart';
+import 'package:restaurant/features/authentication/presentation/pages/login_screen.dart';
 
-import 'authentication/core/service/remote/service_locator.dart';
-import 'authentication/presentation/controller/login_cubit.dart';
-import 'authentication/presentation/pages/login_screen.dart';
+import 'core/service/remote/service_locator.dart';
 
 void main() {
   ServiceLocator.init();
