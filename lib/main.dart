@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:restaurant/features/authentication/presentation/controller/login_cubit.dart';
 import 'package:restaurant/features/authentication/presentation/pages/login_screen.dart';
+import 'package:restaurant/features/restaurant/presentation/pages/home_screen.dart';
 
 import 'core/service/remote/service_locator.dart';
+import 'features/restaurant/presentation/controller/map/map_cubit.dart';
 
 void main() {
   ServiceLocator.init();
@@ -25,6 +27,9 @@ class MyApp extends StatelessWidget {
             BlocProvider<LoginCubit>(
               create: (_) => ServiceLocator.instance<LoginCubit>(),
             ),
+            BlocProvider<MapCubit>(
+              create: (_) => ServiceLocator.instance<MapCubit>(),
+            )
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -38,7 +43,7 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-      child: const LoaderOverlay(child: LoginScreen()),
+      child:  LoaderOverlay(child: MapScreen()),
     );
   }
 }
