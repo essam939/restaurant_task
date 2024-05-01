@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:restaurant/core/service/remote/service_locator.dart';
-import 'package:restaurant/features/restaurant/domain/entities/map_response.dart';
+import 'package:restaurant/features/restaurant/domain/entities/map/map_response.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/map/map_cubit.dart';
+import 'package:restaurant/features/restaurant/presentation/pages/home_screen.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -76,7 +77,9 @@ class _MapScreenState extends State<MapScreen> {
                         _animateToLocation(state.mapResponse[index]);
                       },
                       itemBuilder: (BuildContext context, int index) {
-                        return _buildCard(state.mapResponse[index]);
+                        return GestureDetector(onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=> HomeScreen(branchId: state.mapResponse[index].id,)));
+                        },child: _buildCard(state.mapResponse[index]));
                       },
                     ),
                   ),

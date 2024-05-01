@@ -10,7 +10,9 @@ import 'package:restaurant/features/authentication/presentation/controller/login
 import 'package:restaurant/features/restaurant/data/data_sources/restaurant_remote_data_source.dart';
 import 'package:restaurant/features/restaurant/data/repositories/restaurant_repository.dart';
 import 'package:restaurant/features/restaurant/domain/repositories/base_restaurant_repository.dart';
+import 'package:restaurant/features/restaurant/domain/use_cases/get_categories.dart';
 import 'package:restaurant/features/restaurant/domain/use_cases/get_restaurants.dart';
+import 'package:restaurant/features/restaurant/presentation/controller/categories/categories_cubit.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/map/map_cubit.dart';
 
 import 'api_consumer.dart';
@@ -21,9 +23,11 @@ mixin ServiceLocator {
   static void init() {
     instance.registerLazySingleton(() => LoginCubit(loginUseCase: instance()));
     instance.registerLazySingleton(() => MapCubit(getRestaurantsUseCase: instance()));
+    instance.registerLazySingleton(() => CategoriesCubit(getCategoriesUseCase: instance()));
     // use cases
     instance.registerLazySingleton(() => LoginUseCase(instance()));
     instance.registerLazySingleton(() => GetRestaurantsUseCase(instance()));
+    instance.registerLazySingleton(() => GetCategoriesUseCase(instance()));
 
     instance.registerLazySingleton<BaseAuthenticationRepository>(
           () => AuthenticationRepository(

@@ -14,6 +14,7 @@ class ApiConsumer extends DioConsumer {
 
   ApiConsumer._internal() {
     dio = Dio();
+    dio.options.baseUrl = 'https://nottr.app/api/';
     dio.interceptors.add(
       LogInterceptor(
         responseBody: true,
