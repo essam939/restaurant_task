@@ -10,7 +10,7 @@ class RestaurantRepository extends BaseRestaurantRepository {
   RestaurantRepository({required this.baseRestaurantDataSource});
 
   @override
-  Future<Either<Failure, MapResponse>> getRestaurants() async {
+  Future<Either<Failure,List<MapResponse>>> getRestaurants() async {
     return await baseRestaurantDataSource.getRestaurants();
   }
 }

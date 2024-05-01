@@ -3,8 +3,8 @@ class MapResponse {
   final Language title;
   final String phone;
   final String image;
-  final String lat;
-  final String long;
+  final double lat;
+  final double long;
   final Language address;
 
   const MapResponse({
@@ -23,8 +23,8 @@ class MapResponse {
       title: Language.fromJson(json['title'] as Map<String, dynamic>),
       phone: json['phone'] as String,
       image: json['image'] as String,
-      lat: json['lat'] as String,
-      long: json['long'] as String,
+      lat: double.parse(json['lat'] as String),
+      long: double.parse(json['long'] as String),
       address: Language.fromJson(json['address'] as Map<String, dynamic>),
     );
   }

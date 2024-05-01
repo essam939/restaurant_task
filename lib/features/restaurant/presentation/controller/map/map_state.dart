@@ -10,7 +10,7 @@ class MapInitial extends MapState {}
 class MapLoading extends MapState {}
 
 class MapLoaded extends MapState {
-  final MapResponse mapResponse;
+  final List<MapResponse> mapResponse;
   MapLoaded({required this.mapResponse});
   @override
   List<Object> get props => [];
