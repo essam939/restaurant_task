@@ -3,11 +3,13 @@ import 'package:restaurant/core/error/failure.dart';
 import 'package:restaurant/core/service/remote/dio_consumer.dart';
 import 'package:restaurant/features/restaurant/domain/entities/categories/categories_response.dart';
 import 'package:restaurant/features/restaurant/domain/entities/map/map_response.dart';
+import 'package:restaurant/features/restaurant/domain/entities/product/product_response.dart';
 part 'endpoints.dart';
 
 abstract class BaseRestaurantDataSource {
   Future<Either<Failure, List<MapResponse>>> getRestaurants();
   Future<Either<Failure, List<CategoriesResponse>>> getCategories(int id);
+  Future<Either<Failure, List<ProductResponse>>> getProducts(int categoryId);
 }
 
 class RestaurantDataSource extends BaseRestaurantDataSource {
@@ -54,6 +56,28 @@ class RestaurantDataSource extends BaseRestaurantDataSource {
               )
               .toList();
           return Right(categoriesList);
+        },
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ProductResponse>>> getProducts(int categoryId) async {
+    {
+      final responseEither = await _dio.get(
+        _RestaurantEndPoints.product(categoryId),
+      );
+      return responseEither.fold(
+            (failure) => Left(failure),
+            (response) {
+          final productListJson = response["data"] as List<dynamic>;
+          final  productList = productListJson
+              .map(
+                (productJson) => ProductResponse.fromJson(
+                    productJson as Map<String, dynamic>),
+          )
+              .toList();
+          return Right(productList);
         },
       );
     }
