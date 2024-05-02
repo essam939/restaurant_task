@@ -14,6 +14,7 @@ import 'package:restaurant/features/restaurant/domain/use_cases/get_categories.d
 import 'package:restaurant/features/restaurant/domain/use_cases/get_product.dart';
 import 'package:restaurant/features/restaurant/domain/use_cases/get_restaurants.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/categories/categories_cubit.dart';
+import 'package:restaurant/features/restaurant/presentation/controller/counter/counter_cubit.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/map/map_cubit.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/product/product_cubit.dart';
 
@@ -27,6 +28,7 @@ mixin ServiceLocator {
     instance.registerLazySingleton(() => MapCubit(getRestaurantsUseCase: instance()));
     instance.registerLazySingleton(() => CategoriesCubit(getCategoriesUseCase: instance()));
     instance.registerLazySingleton(() => ProductCubit(getProductUseCase: instance()));
+    instance.registerLazySingleton(() => CounterCubit());
     // use cases
     instance.registerLazySingleton(() => LoginUseCase(instance()));
     instance.registerLazySingleton(() => GetRestaurantsUseCase(instance()));

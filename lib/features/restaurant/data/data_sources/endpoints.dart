@@ -3,5 +3,5 @@ mixin _RestaurantEndPoints {
   static const String getRestaurants = "branches?lat=20.256565&long=30.556654654&company_id=3";
   static const String getCategories = "branch/";
   static String category(int id) => "$getCategories/$id/categories";
-  static String product(int categoryId) => "$getCategories/25/category/$categoryId/products";
+  static String product(int branchId,int categoryId) => "$getCategories/$branchId/category/$categoryId/products";
 }

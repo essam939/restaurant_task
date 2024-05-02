@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'package:restaurant/features/authentication/presentation/controller/login_cubit.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/categories/categories_cubit.dart';
+import 'package:restaurant/features/restaurant/presentation/controller/counter/counter_cubit.dart';
 import 'package:restaurant/features/restaurant/presentation/controller/product/product_cubit.dart';
 import 'package:restaurant/features/restaurant/presentation/pages/map_screen.dart';
 
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
             ),
             BlocProvider<ProductCubit>(
               create: (_) => ServiceLocator.instance<ProductCubit>(),
+            ),
+            BlocProvider<CounterCubit>(
+              create: (_) => ServiceLocator.instance<CounterCubit>(),
             ),
           ],
           child: MaterialApp(

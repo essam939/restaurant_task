@@ -3,6 +3,7 @@ import 'package:restaurant/core/error/failure.dart';
 import 'package:restaurant/features/restaurant/data/data_sources/restaurant_remote_data_source.dart';
 import 'package:restaurant/features/restaurant/domain/entities/categories/categories_response.dart';
 import 'package:restaurant/features/restaurant/domain/entities/map/map_response.dart';
+import 'package:restaurant/features/restaurant/domain/entities/product/product_request.dart';
 import 'package:restaurant/features/restaurant/domain/entities/product/product_response.dart';
 import 'package:restaurant/features/restaurant/domain/repositories/base_restaurant_repository.dart';
 
@@ -23,8 +24,7 @@ class RestaurantRepository extends BaseRestaurantRepository {
   }
 
   @override
-  Future<Either<Failure, List<ProductResponse>>> getProducts(
-      int categoryId) async {
-    return await baseRestaurantDataSource.getProducts(categoryId);
+  Future<Either<Failure, List<ProductResponse>>> getProducts(ProductsRequest productsRequest) async {
+    return await baseRestaurantDataSource.getProducts(productsRequest);
   }
 }
