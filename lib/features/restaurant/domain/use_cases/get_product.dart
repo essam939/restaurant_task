@@ -12,7 +12,7 @@ class GetProductUseCase extends BaseUseCase<List<ProductResponse>, ProductsReque
   GetProductUseCase(this.restaurantRepository);
 
   @override
-  Future<Either<Failure, List<ProductResponse>>> execute(ProductsRequest productsRequest) async {
-    return await restaurantRepository.getProducts(productsRequest);
+  Future<Either<Failure, List<ProductResponse>>> execute(ProductsRequest params) async {
+    return await restaurantRepository.getProducts(params);
   }
 }

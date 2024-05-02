@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
           context.loaderOverlay.show();
         } else if (state is LoginLoaded) {
           context.loaderOverlay.hide();
-          Navigator.push(context, MaterialPageRoute(builder: (_)=> MapScreen()));
+          Navigator.push(context, MaterialPageRoute(builder: (_)=> const MapScreen()));
         } else if (state is LoginError) {
           context.loaderOverlay.hide();
           var snackBar = SnackBar(

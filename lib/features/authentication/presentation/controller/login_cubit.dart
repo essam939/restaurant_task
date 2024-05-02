@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant/core/service/local/interface/i_simple_user_data.dart';
 import 'package:restaurant/core/service/local/user_data_factory.dart';
 import 'package:restaurant/core/service/remote/error_message_remote.dart';

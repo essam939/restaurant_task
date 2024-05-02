@@ -8,6 +8,8 @@ import 'package:restaurant/features/restaurant/presentation/controller/map/map_c
 import 'package:restaurant/features/restaurant/presentation/pages/home_screen.dart';
 
 class MapScreen extends StatefulWidget {
+  const MapScreen({super.key});
+
   @override
   _MapScreenState createState() => _MapScreenState();
 }
@@ -95,7 +97,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ));
         } else {
-          return LoaderOverlay(
+          return const LoaderOverlay(
               child: Scaffold(
             body: Center(
               child: Text('Something went wrong'),
@@ -115,7 +117,7 @@ class _MapScreenState extends State<MapScreen> {
         onTap: () {
           _pageController!.animateToPage(
             mapResponse.indexOf(location),
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             curve: Curves.ease,
           );
         },
@@ -138,7 +140,7 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -146,15 +148,15 @@ class _MapScreenState extends State<MapScreen> {
                 leading: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(mapResponse.image)),
-                title: Text(
+                title: const Text(
                   "phone number",
                 ),
                 subtitle: Text(
                   mapResponse.phone,
                 )),
             ListTile(
-                leading: Icon(Icons.location_on),
-                title: Text(
+                leading: const Icon(Icons.location_on),
+                title: const Text(
                   "Address",
                 ),
                 subtitle: Text(

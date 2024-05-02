@@ -10,7 +10,7 @@ class GetCategoriesUseCase extends BaseUseCase<List<CategoriesResponse>, int > {
   GetCategoriesUseCase(this.restaurantRepository);
 
   @override
-  Future<Either<Failure, List<CategoriesResponse>>> execute(int id) async {
-    return await restaurantRepository.getCategories(id);
+  Future<Either<Failure, List<CategoriesResponse>>> execute(int params) async {
+    return await restaurantRepository.getCategories(params);
   }
 }

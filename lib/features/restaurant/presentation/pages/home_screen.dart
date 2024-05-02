@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restaurant/core/service/remote/service_locator.dart';
 import 'package:restaurant/features/restaurant/domain/entities/categories/categories_response.dart';
@@ -13,7 +11,7 @@ import 'package:restaurant/features/restaurant/presentation/pages/product_detail
 class HomeScreen extends StatefulWidget {
   final int branchId;
 
-  HomeScreen({Key? key, required this.branchId}) : super(key: key);
+  const HomeScreen({super.key, required this.branchId});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -30,6 +28,11 @@ class _HomeScreenState extends State<HomeScreen> {
     categoriesCubit.getCategories(widget.branchId);
     // Initialize with no category selected
     selectedCategoryId = 0;
+  }
+  @override
+  void dispose() {
+ productCubit.reset();
+    super.dispose();
   }
 
   @override
@@ -135,12 +138,12 @@ class CategoryItem extends StatelessWidget {
   final VoidCallback onTap;
 
   const CategoryItem({
-    Key? key,
+    super.key,
     required this.category,
     required this.branchId,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -180,8 +183,8 @@ class ProductItem extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl:  product.imageUrl.image,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => CircularProgressIndicator(),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+                placeholder: (context, url) => const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
             Padding(
@@ -207,7 +210,7 @@ class ProductItem extends StatelessWidget {
                         '\$${product.price.toString()}',
                         style: const TextStyle(color: Colors.black),
                       ),
-                      IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border))
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_border))
                     ],
                   ),
 
